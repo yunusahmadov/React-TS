@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProds } from '../actions/Actions';
 
+
+
 function Product() {
   const [products, setProducts] = useState([]);
 
