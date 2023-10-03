@@ -9,6 +9,17 @@ export const getAllProds = async () => {
       }
 };
 
+
+export const getAllUsers=async()=>{
+  try{
+    const users=await axios.get('https://dummyjson.com/users')
+    return users.data;
+  }catch(error){
+  console.log(error);
+  
+}
+}
+
 //Пишем получение 1 продукта 
 export const getOneProduct = async (id:string | undefined) => {
     try {
@@ -18,3 +29,12 @@ export const getOneProduct = async (id:string | undefined) => {
         console.log(error);
       }
 };
+
+export const getOneUser=async(id:string | undefined)=>{
+  try {
+    const user=await axios.get(`https://dummyjson.com/users/${id}`);
+    return user.data
+  } catch (error) {
+    console.log(error);
+  }
+}
