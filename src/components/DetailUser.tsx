@@ -2,20 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getOneUser } from '../actions/Actions';
 import { Person } from '../interfaces/person.interface';
+import { Skeleton, SkeletonCircle, SkeletonText,Box } from '@chakra-ui/react';
 
 
 function DetailUser() {
     const { id } = useParams();
     const [user,setUser]=useState<Person | null >(null)
+
+    const [loading, setLoading] = useState(true); 
     useEffect(() => {
         getOneUser(id)
           .then(data => {
             setUser(data);
+            setTimeout(() => {
+              setLoading(false);
+            }, 1000);
           });
       }, [id]);
     console.log(user);
     
   return (
+    
+    loading?(
+    <div className='detail-page'>
+      <SkeletonCircle size='200' />
+      <Box padding='6' boxShadow='lg' bg='white'>
+      <SkeletonText mt='4' noOfLines={4} spacing='10' skeletonHeight='5' />
+  </Box>
+  </div>
+    ):
     <div className='detail-page'>
         <h1>User Info</h1>
        <div className="detail-top">
