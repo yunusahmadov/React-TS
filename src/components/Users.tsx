@@ -7,7 +7,7 @@ import { Box } from '@chakra-ui/react';
 import { Button, ButtonGroup } from '@chakra-ui/react'
 function Users() {
     const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(true); // Создаем состояние для отслеживания загрузки
+    const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
         getAllUsers()
@@ -22,11 +22,7 @@ function Users() {
     return (
         <>
             <div className='user-container'>
-                {loading ? ( // Если данные еще загружаются, показываем скелетон
-                    // <Box padding='6' boxShadow='lg' bg='white'>
-                    //     <SkeletonCircle size='10' />
-                    //     <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
-                    // </Box>
+                {loading ? (
                     users.map((user: Person) => (
                      <Box padding='6' boxShadow='lg' bg='white'>
                         <SkeletonCircle size='200' />

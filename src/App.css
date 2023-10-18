@@ -9,6 +9,10 @@
   background-color: #242424;
   text-align: center;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .detail-center{
   display: flex;  
@@ -35,4 +39,7 @@
 .user-container{
   text-align: center;
 
+}
+.detail-page .css-aei6ph{
+  width: 100%;
 }
